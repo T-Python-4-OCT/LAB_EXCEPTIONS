@@ -1,0 +1,37 @@
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9 / 5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5 / 9
+
+def main():
+    while True:
+        try:
+            user_input = input('Enter a temperature and its unit (for example "25 C" or "77 F"):' )
+
+            temperature, unit = user_input.split()
+            temperature = float(temperature)
+            unit = unit.upper()
+
+            if unit == "C":
+                result = celsius_to_fahrenheit(temperature)
+                print(f"Temperature in Fahrenheit: {result:.2f} F")
+                break
+
+            elif unit == "F":
+                result = fahrenheit_to_celsius(temperature)
+                print(f"Temperature in Celsius: {result:.2f} C")
+                break
+
+            else:
+                raise TypeError("Invalid unit.")
+
+        except ValueError:
+            print("Invalid temperature value. Please enter a valid number and unit.")
+
+        except TypeError:
+            print("Invalid unit. Please use 'C' for Celsius or 'F' for Fahrenheit.")
+
+
+if __name__ == "__main__":
+    main()
